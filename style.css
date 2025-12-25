@@ -1,0 +1,314 @@
+:root{
+    /* PALET WARNA BARU (Aesthetic/Modern) */
+    /* Warna Primer: Biru keabu-abuan (Slate/Blue-Gray) */
+    /* Warna Aksen: Hijau Toska / Mint */
+    
+    /* Light Mode */
+    --bg: #f8fafc;        /* Abu-abu terang sangat lembut (Slate-50) */
+    --card: #ffffff;      /* Putih bersih */
+    --accent: #06b6d4;    /* Cyan/Toska terang (Cyan-600) */
+    --accent-light: #22d3ee; /* Cyan lebih terang */
+    --muted: #475569;     /* Abu-abu kebiruan sedang (Slate-600) */
+    --text-main: #1e293b; /* Biru kehitaman (Slate-800) */
+    --text-secondary: #64748b; /* Abu-abu kebiruan (Slate-500) */
+    --border-color: #e2e8f0; /* Abu-abu cerah (Slate-200) */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --radius: 12px;
+    --maxwidth: 1100px;
+    --container-pad: 24px;
+    
+    --nav-bg: rgba(255,255,255,0.95);
+    --math-bg: #fff;
+    --code-bg: #f1f5f9; /* Slate-100 */
+}
+
+/* DARK MODE STYLES */
+body.dark-mode {
+    --bg: #0f172a;        /* Biru kehitaman sangat gelap (Slate-900) */
+    --card: #1e293b;      /* Biru kehitaman gelap (Slate-800) */
+    --accent: #22d3ee;    /* Cyan/Toska terang (Cyan-400) */
+    --accent-light: #67e8f9; /* Cyan lebih terang (Cyan-300) */
+    --muted: #94a3b8;     /* Abu-abu kebiruan pucat (Slate-400) */
+    --text-main: #f8fafc; /* Putih terang (Slate-50) */
+    --text-secondary: #cbd5e1; /* Abu-abu pucat (Slate-300) */
+    --border-color: #334155; /* Slate-700 */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    
+    --nav-bg: rgba(30, 41, 59, 0.95); /* Slate-800 transparan */
+    --math-bg: #0f172a;
+    --code-bg: #020617; /* Slate-950 */
+}
+
+/* Reset dasar */
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Inter', sans-serif;
+    background:var(--bg);
+    color:var(--text-main);
+    -webkit-font-smoothing:antialiased;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navigasi */
+.nav{
+    background:var(--nav-bg);
+    border-bottom:1px solid var(--border-color);
+    position:sticky; top:0; z-index:1000;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.nav .container{
+    max-width:var(--maxwidth);
+    margin:0 auto; padding:12px var(--container-pad);
+    display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; color:var(--accent); user-select:none; cursor:pointer;
+    font-size: 20px;
+}
+.brand .logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    filter: invert(85%) sepia(40%) saturate(400%) hue-rotate(160deg);
+}
+
+.menu{display:flex; gap:6px; align-items:center}
+.menu a{
+    color:var(--text-secondary); text-decoration:none; padding:8px 14px; 
+    border-radius:8px; font-size:14px; font-weight:600; transition:all 0.2s;
+}
+.menu a:hover{background:var(--bg); color:var(--accent)}
+.menu a.active{background:var(--accent); color:var(--card)}
+
+/* Tombol Tema */
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-left: 8px;
+}
+.theme-toggle-btn:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Layout Utama */
+.container{max-width:var(--maxwidth); margin:32px auto; padding:0 var(--container-pad)}
+h1.page-title{font-size:28px; margin:0 0 24px; color:var(--text-main); font-weight:800; letter-spacing: -0.02em;}
+
+/* Grid System */
+.grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px}
+
+/* Kartu Materi */
+.card{
+    background:var(--card); padding:24px; border-radius:var(--radius); 
+    box-shadow:var(--shadow); border:1px solid var(--border-color);
+    transition:transform 0.2s, box-shadow 0.2s, background-color 0.3s, border-color 0.3s;
+    display: flex; flex-direction: column; justify-content: space-between;
+    cursor: pointer; /* Menandakan bisa diklik */
+}
+.card:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 10px 15px -3p.mx-4 rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-light);
+}
+.card h3{margin:0 0 10px; font-size:18px; color:var(--accent); font-weight:700;}
+.card p{margin:0; font-size:14px; color:var(--text-secondary); line-height: 1.5;}
+
+.topic-arrow {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 16px;
+    font-size: 13px;
+    display: flex; align-items: center; gap: 4px;
+}
+
+/* Tampilan Detail Materi */
+.detail-view {
+    background: var(--card);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.detail-content h1 { color: var(--accent); margin-top: 0; margin-bottom: 20px; font-size: 28px; font-weight: 800;}
+.detail-content h2 { color: var(--muted); margin-top: 32px; margin-bottom: 16px; font-size: 22px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;}
+.detail-content h3 { color: var(--text-main); margin-top: 24px; margin-bottom: 12px; font-size: 18px; font-weight: 700; }
+.detail-content p { margin-bottom: 16px; text-align: justify; color: var(--text-main); }
+.detail-content ul, .detail-content ol { margin-bottom: 16px; padding-left: 24px; color: var(--text-main); }
+.detail-content li { margin-bottom: 8px; }
+
+/* Tabel di dalam Detail */
+.detail-content table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.detail-content th, .detail-content td { border: 1px solid var(--border-color); padding: 10px 12px; text-align: left; font-size: 15px; color: var(--text-main); }
+.detail-content th { background-color: var(--bg); font-weight: 600; color: var(--accent); }
+
+/* Tombol Kembali */
+.back-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text-secondary); background: var(--card);
+    padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+    cursor: pointer; margin-bottom: 24px; font-weight: 600; font-size: 14px;
+    transition: all 0.2s;
+}
+.back-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--bg);}
+
+/* Hero Section di Beranda */
+.hero {
+    text-align: center; /* Teks di tengah */
+    padding: 60px 0;
+    opacity: 0; /* Awalnya tersembunyi untuk efek fade */
+    animation: heroFadeIn 1s ease-out 0.3s forwards; /* Animasi fade-in */
+}
+.hero h1 { font-size: 48px; color: var(--text-main); margin-bottom: 16px; line-height: 1.1; }
+.hero p { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px auto; } /* Tengah untuk P */
+
+.btn{
+    background:var(--accent); color:var(--card); border:none; padding:12px 24px; 
+    border-radius:8px; cursor:pointer; font-weight:600; font-size:15px;
+    transition:background 0.2s; display:inline-flex; align-items:center; gap:8px;
+}
+.btn:hover{background:var(--muted)}
+.btn-outline { 
+    background: transparent; 
+    border: 2px solid var(--accent); 
+    color: var(--accent); 
+}
+.btn-outline:hover { 
+    background: var(--accent); 
+    color: var(--card); 
+}
+
+/* Animasi */
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* Animasi Fade In Khusus Hero */
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .nav .container{padding: 12px; flex-direction: column; gap: 10px;}
+    .menu { width: 100%; justify-content: space-between; overflow-x: auto; padding-bottom: 4px; }
+    .hero h1 { font-size: 32px; }
+    .detail-view { padding: 20px; }
+    .card { cursor: default; } /* Pada mobile, efek hover kurang relevan */
+    .card:active { background-color: var(--bg); }
+}
+
+/* MathJax Override & Details */
+mjx-container { 
+    font-size: 120% !important; 
+    color: var(--text-main) !important; 
+    margin: 16px 0 !important; /* Tambah margin agar block rumus lebih jelas */
+    padding: 8px 0;
+    /* Ubah border menjadi lebih lembut, hanya di bawah untuk hasil */
+    /* border-bottom: 1px dashed var(--border-color); */ 
+    /* border-top: 1px dashed var(--border-color); */
+    display: block; /* Pastikan selalu blok */
+}
+
+details {
+    background: var(--bg); 
+    padding:12px; 
+    border-radius:8px; 
+    margin-top:16px; 
+    cursor:pointer;
+    border: 1px solid var(--border-color);
+}
+details summary {
+    font-weight:600; 
+    color:var(--accent); 
+    outline:none;
+}
+details > div {
+    margin-top:12px; 
+    font-size:14px; 
+    border-top:1px solid var(--border-color); 
+    padding-top:12px;
+    color: var(--text-main);
+}
+
+/* CSS UNTUK FOTO ANGGOTA TIM BARU */
+.profile-avatar {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    object-fit: cover; /* Pastikan gambar mengisi kotak tanpa distorsi */
+    border: 3px solid var(--accent); /* Tambahkan border aksen */
+}
+
+/* --- CSS UNTUK KALKULATOR --- */
+.input-group {
+    margin-bottom: 12px;
+}
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text-main);
+    font-size: 16px;
+    transition: border-color 0.2s;
+    box-sizing: border-box; /* Penting agar padding tidak melebarkan input */
+}
+.input-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--card);
+}
+
+.separator {
+    height: 1px;
+    background: var(--border-color);
+    margin: 16px 0;
+}
+
+.result-box p {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.hasil-rumus mjx-container {
+    /* Atur ulang gaya MathJax untuk hasil kalkulator agar lebih menonjol */
+    font-size: 150% !important; 
+    margin: 0 !important;
+    padding: 12px 0;
+    border: none;
+    border-top: 2px dashed var(--accent); /* Aksen garis tebal */
+    border-bottom: 2px dashed var(--accent);
+    margin-top: 12px !important;
+    text-align: center;
+}
+.kalkulator-card:hover {
+    /* Matikan efek hover transformasi pada kalkulator */
+    transform: none; 
+    box-shadow: var(--shadow); 
+    border-color: var(--border-color);
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculus — Web Pembelajaran Kalkulus</title>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="">
+
+    <header class="nav">
+        <div class="container">
+            <div class="brand" onclick="location.reload()">
+                <img src="image.png" class="logo">
+                <span>CALCULUS</span>
+            </div>
+            <nav class="menu">
+                <a href="#" class="nav-link active" data-target="home">Beranda</a>
+                <a href="#" class="nav-link" data-target="materi">Materi</a>
+                <a href="#" class="nav-link" data-target="tentang">Tentang</a>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Ganti Tema">
+                    <span id="theme-icon">🔆</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="page" style="display:block">
+            <div class="container">
+                <div class="hero">
+                    <h1>Jelajahi Dunia<br><span style="color:var(--accent)">Kalkulus</span></h1>
+                    <p>
+                        Platform interaktif untuk memahami konsep sistem bilangan riil, koordinat kartesius, turunan, dan integral. Belajar kalkulus kini lebih terstruktur dan mudah dipahami.
+                    </p>
+                    <div style="display:flex; gap:12px; justify-content: center;">
+                        <button class="btn" onclick="document.querySelector('[data-target=materi]').click()">Mulai Belajar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="materi" class="page" style="display:none">
+            <div class="container">
+                
+                <div id="materi-grid-view">
+                    <h1 class="page-title">Modul Pembelajaran</h1>
+                    <p style="margin-bottom: 32px; color: var(--text-secondary);">Pilih topik di bawah ini untuk mulai mempelajari materi secara mendalam.</p>
+                    
+                    <div class="grid">
+                        <div class="card" onclick="openMateri('bab1')">
+                            <div>
+                                <h3>I. Pengantar Kalkulus</h3>
+                                <p>Memahami definisi dasar kalkulus, sejarah singkat, dan pentingnya mempelajari perubahan dan akumulasi.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+                        
+                        <div class="card" onclick="openMateri('bab2')">
+                            <div>
+                                <h3>II. Sistem Bilangan Riil</h3>
+                                <p>Fondasi utama kalkulus. Mempelajari himpunan bilangan, sifat aljabar, urutan, dan ketaksamaan.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+                        
+                        <div class="card" onclick="openMateri('bab3')">
+                            <div>
+                                <h3>III. Sistem Koordinat Kartesius</h3>
+                                <p>Geometri analitik: Titik, jarak, gradien, dan persamaan garis lurus pada bidang dua dimensi.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+                        
+                        <div class="card" onclick="openMateri('bab4')">
+                            <div>
+                                <h3>IV. Limit (Batas)</h3>
+                                <p>Konsep fundamental yang menjelaskan perilaku fungsi saat mendekati nilai tertentu. Dasar turunan.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+
+                        <div class="card" onclick="openMateri('bab5')">
+                            <div>
+                                <h3>V. Kontinuitas</h3>
+                                <p>Syarat fungsi tersambung tanpa putus. Hubungannya dengan limit dan keberadaan turunan.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+
+                        <div class="card" onclick="openMateri('bab6')">
+                            <div>
+                                <h3>VI. Turunan (Derivatif)</h3>
+                                <p>Mengukur laju perubahan sesaat. Aturan pencarian turunan dan aplikasinya dalam optimasi.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+
+                        <div class="card" onclick="openMateri('bab7')">
+                            <div>
+                                <h3>VII. Integral</h3>
+                                <p>Operasi kebalikan dari turunan (antiturunan). Menghitung luas daerah dan volume benda putar.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+
+                        <div class="card" onclick="openMateri('bab8')">
+                            <div>
+                                <h3>VIII. Aplikasi Kalkulus</h3>
+                                <p>Penerapan kalkulus di dunia nyata: Fisika, Ekonomi, Biologi, dan Teknik.</p>
+                            </div>
+                            <div class="topic-arrow">Baca Materi →</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="materi-detail-view" style="display:none">
+                    <button class="back-btn" onclick="closeMateri()">← Kembali ke Daftar Materi</button>
+                    <div id="detail-content-area" class="detail-view detail-content">
+                        </div>
+                    <button class="back-btn" style="margin-top:24px" onclick="closeMateri()">← Kembali ke Daftar Materi</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tentang" class="page" style="display:none">
+    <div class="container">
+        <h1 class="page-title">Tentang Kami</h1>
+        
+        <div class="grid">
+            
+            <div class="card" style="cursor: default;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <img src="./sapik.jpg" alt="Foto Pengembang 1" class="profile-avatar"> 
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px;">Shafiq</h3>
+                    </div>
+                </div>
+                <p style="margin-top: 12px;">Bertanggung jawab atas arsitektur website dan pengembangan fitur interaktif.</p>
+                
+            </div>
+
+            <div class="card" style="cursor: default;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <img src="./riska.jpg" alt="Foto Pengembang 2" class="profile-avatar"> 
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px;">Riska</h3>
+                       
+                    </div>
+                </div>
+                <p style="margin-top: 12px;">Merancang antarmuka pengguna yang bersih dan pengalaman pengguna yang intuitif.</p>
+
+            </div>
+
+            <div class="card" style="cursor: default;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <img src="./si_keren.jpg" alt="Foto Pengembang 3" class="profile-avatar"> 
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px;">Januar Saputra Yoso</h3>
+
+                    </div>
+                </div>
+                <p style="margin-top: 12px;">Menyusun dan memvalidasi materi matematika agar akurat dan mudah dipahami.</p>
+                <div style="margin-top: 12px; font-size: 13px; color: var(--muted);">
+            
+                </div>
+            </div>
+            
+            <div class="card" style="cursor: default;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <img src="./fizi.jpg" alt="Foto Pengembang 4" class="profile-avatar"> 
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px;">Alfarizi</h3>
+                    </div>
+                </div>
+                <p style="margin-top: 12px;">Memastikan kualitas dan performa website berjalan dengan baik di berbagai perangkat.</p>
+               
+            </div>
+
+        </div>
+        
+        <div class="card" style="margin-top: 24px; cursor: default;">
+            <h3>Misi Kami</h3>
+            <p>Web ini dibuat sebagai sarana pembelajaran kalkulus yang interaktif dan mudah diakses bagi mahasiswa dan pelajar. Kami percaya bahwa matematika, khususnya kalkulus, adalah fondasi penting untuk berbagai disiplin ilmu sains dan teknologi.</p>
+        </div>
+        
+    </div>
+</section>
+
+    </main>
+
+    <script src="script.js"></script> 
+</body>
+</html>
